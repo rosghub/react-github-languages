@@ -2,34 +2,14 @@ import * as React from 'react'
 import * as colors from './colors.json'
 
 export interface GithubLanguagesProps {
-  repository: string;
+  data: Record<string, number>;
   width: number;
   textColor?: string;
   lightColor?: string;
 }
 
 export default function GithubLanguages(props: GithubLanguagesProps) {
-  const [data, setData] = React.useState<Record<string, number>>()
-  React.useEffect(() => {
-    async function init() {
-      if (/\S+\/\S/gi.test(props.repository)) {
-        try {
-          const response = await fetch(`https://api.github.com/repos/${props.repository}/languages`)
-          if (!response.ok) {
-            throw new Error(`Failed to fetch repository: ${props.repository}`)
-          } else {
-            const jsonResponse = await response.json()
-            setData(jsonResponse)
-          }
-        } catch (error) {
-            throw new Error(`Failed to fetch repository: ${props.repository}`)
-        }
-      } else {
-        throw new Error(`Invalid repository: ${props.repository}`)
-      }
-    }
-    init()
-  }, [])
+  const { data } = props;
 
   if (data) {
     let total = 0;
