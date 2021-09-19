@@ -3,7 +3,6 @@ import * as colors from './colors.json'
 
 export interface GithubLanguagesProps {
   data: Record<string, number>;
-  width: number;
   textColor?: string;
   lightColor?: string;
 }
@@ -23,14 +22,14 @@ export default function GithubLanguages(props: GithubLanguagesProps) {
           <ul style={{ display: "flex", listStyleType: "none", margin: 0, padding: 0, overflow: 'hidden' }}>
             {Object.keys(data).map((language: string, index: number) => {
               return (
-                <li key={language}>
+                <li
+                  key={language}
+                  style={{
+                    width: `${Math.max(data[language] / total * 100, 1)}%`,
+                  }}>
                   <div
                     style={{
                       backgroundColor: colors[language]["color"],
-                      width: Math.max(
-                        (data[language] / total) * props.width,
-                        5
-                      ),
                       height: 10,
                       marginRight: 2,
                       borderRadius:
@@ -48,7 +47,7 @@ export default function GithubLanguages(props: GithubLanguagesProps) {
             })}
           </ul>
         </div>
-        <div style={{ width: props.width }}>
+        <div>
           <ul style={{ display: "flex", flexWrap: "wrap", listStyleType: "none", margin: 0, padding: 0, overflow: 'hidden' }}>
             {Object.keys(data).map((language: string) => {
               return (
@@ -82,7 +81,7 @@ export default function GithubLanguages(props: GithubLanguagesProps) {
                   </span>
                   <span style={{ color: props.lightColor || "gray" }}>
                     {((data[language] / total) * 100).toFixed(1)}%
-                </span>
+                  </span>
                 </li>
               );
             })}
