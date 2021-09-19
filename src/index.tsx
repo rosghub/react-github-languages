@@ -34,7 +34,7 @@ export default function GithubLanguages(props: GithubLanguagesProps) {
                     style={{
                       backgroundColor: colors[language]["color"],
                       height: LINE_HEIGHT,
-                      marginRight: 2
+                      marginRight: '0.1rem'
                     }}
                   />
                 </li>
