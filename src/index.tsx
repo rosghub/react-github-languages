@@ -5,6 +5,7 @@ export interface GithubLanguagesProps {
   data: Record<string, number>;
   textColor?: string;
   lightColor?: string;
+  className?: string | undefined
 }
 
 export default function GithubLanguages(props: GithubLanguagesProps) {
@@ -17,7 +18,7 @@ export default function GithubLanguages(props: GithubLanguagesProps) {
     });
 
     return (
-      <div style={{ display: "flex-col" }}>
+      <div style={{ display: "flex-col" }} className={props.className}>
         <div>
           <ul style={{ display: "flex", listStyleType: "none", margin: 0, padding: 0, overflow: 'hidden' }}>
             {Object.keys(data).map((language: string, index: number) => {
@@ -54,7 +55,7 @@ export default function GithubLanguages(props: GithubLanguagesProps) {
                 <li
                   key={`${language}-name`}
                   style={{
-                    margin: 2,
+                    margin: '0.1rem 0.6rem 0.1rem 0',
                     display: "flex",
                     justifyItems: "center",
                     alignItems: "center"
