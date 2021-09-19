@@ -39,7 +39,6 @@ export default function GithubLanguages(props: GithubLanguagesProps) {
 
     return (
       <div style={{ display: "flex-col" }}>
-        <h2 style={{ color: props.textColor || "black", fontSize: 24 }}>Languages</h2>
         <div>
           <ul style={{ display: "flex", listStyleType: "none", margin: 0, padding: 0, overflow: 'hidden' }}>
             {Object.keys(data).map((language: string, index: number) => {
