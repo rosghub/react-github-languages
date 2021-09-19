@@ -1,6 +1,8 @@
 import * as React from 'react'
 import * as colors from './colors.json'
 
+const LINE_HEIGHT = 7;
+
 export interface GithubLanguagesProps {
   data: Record<string, number>;
   textColor?: string;
@@ -21,7 +23,7 @@ export default function GithubLanguages(props: GithubLanguagesProps) {
       <div style={{ display: "flex-col" }} className={props.className}>
         <div>
           <ul style={{ display: "flex", listStyleType: "none", margin: 0, padding: 0, overflow: 'hidden' }}>
-            {Object.keys(data).map((language: string, index: number) => {
+            {Object.keys(data).map((language: string) => {
               return (
                 <li
                   key={language}
@@ -31,16 +33,8 @@ export default function GithubLanguages(props: GithubLanguagesProps) {
                   <div
                     style={{
                       backgroundColor: colors[language]["color"],
-                      height: 10,
-                      marginRight: 2,
-                      borderRadius:
-                        index === 0
-                          ? index === Object.keys(data).length - 1
-                            ? "10px 10px 10px 10px"
-                            : "10px 0 0 10px"
-                          : index === Object.keys(data).length - 1
-                            ? "0 10px 10px 0"
-                            : ""
+                      height: LINE_HEIGHT,
+                      marginRight: 2
                     }}
                   />
                 </li>
@@ -63,10 +57,9 @@ export default function GithubLanguages(props: GithubLanguagesProps) {
                 >
                   <span
                     style={{
-                      height: 10,
-                      width: 10,
+                      height: LINE_HEIGHT,
+                      width: LINE_HEIGHT,
                       backgroundColor: colors[language]["color"],
-                      borderRadius: "50%",
                       display: "inline-block"
                     }}
                   />
