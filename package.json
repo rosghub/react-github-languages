@@ -1,5 +1,5 @@
 {
-  "name": "react-github-languages",
+  "name": "@rosghub/react-github-languages",
   "version": "1.0.0",
   "description": "A React component to display a repository's used languages (just like Github does).",
   "main": "dist/index.js",
@@ -8,9 +8,8 @@
     "build": "rollup -c",
     "start": "rollup -c -w"
   },
-  "repository": "git://github.com/willdavsmith/react-github-languages.git",
+  "repository": "git://github.com/rosghub/react-github-languages.git",
   "publishConfig": {
-    "cache": "~/.npm",
     "registry": "https://npm.pkg.github.com/"
   },
   "keywords": [
@@ -21,9 +20,9 @@
   "author": "@willdavsmith",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/willdavsmith/react-github-languages/issues"
+    "url": "https://github.com/rosghub/react-github-languages/issues"
   },
-  "homepage": "https://github.com/willdavsmith/react-github-languages#readme",
+  "homepage": "https://github.com/rosghub/react-github-languages#readme",
   "peerDependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
